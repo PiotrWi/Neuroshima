@@ -1,5 +1,4 @@
 /*
- * TODO(PiotrWi): To write an iterator to allow to move over hexes.
  * TODO(PiotrWi): To test it on ut.
  * */
 
@@ -45,7 +44,7 @@ enum class Dirrection
     TopLeft =5u,
 };
 
-int to_int(const Dirrection& dir)
+inline int to_int(const Dirrection& dir)
 {
     return static_cast<int>(dir);
 }
@@ -64,6 +63,7 @@ struct Hex
 NO_COPYABLE_MACRO(Hex);
 friend HexIt<TContent>;
     Hex() {};
+    ~Hex() {};
 public:
     int neigbourIndexes[6];
     Hex* neighbours[6];

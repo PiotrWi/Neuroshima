@@ -1,21 +1,19 @@
 #include <iostream>
 
-#include "HexContainer.h"
+#include <array>
+
+#include <ArmyFactory.h>
+#include <gamecontroller.h>
 
 using namespace std;
 
 int main()
 {
-    HexTable<int, 3> table;
+    std::array<Army, 2> armies {
+        createArmy(ArmyType::Borgo),
+        createArmy(ArmyType::Moloh)
+    };
+    GameController game(std::move(armies));
 
-    for (auto i = 0; i < table.size(); ++i)
-    {
-        table[i] = i;
-    }
-
-    for (auto it = table.begin(); it != table.end(); ++it)
-    {
-        std::cout << *it << std::endl;
-    }
     return 0;
 }
